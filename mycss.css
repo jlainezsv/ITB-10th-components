@@ -1,0 +1,225 @@
+@font-face {
+    font-family: 'fontMadeBlack';
+    src: url('fonts/made-black.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'fontMadeMedium';
+    src: url('fonts/made-medium.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'fontTelegrafBlack';
+    src: url('fonts/telegraf-black.woff2') format('woff2');
+}
+@font-face {
+    font-family: 'fontTelegrafMedium';
+    src: url('fonts/telegraf-medium.woff2') format('woff2');
+}
+
+.fontMadeBlack{
+    font-family: 'fontMadeBlack';
+}
+.fontMadeMedium{
+    font-family: 'fontMadeMedium';
+}
+
+h1,h3, h4, h5, h6{
+    font-family: 'fontMadeMedium';
+}
+
+p {
+    font-family: 'fontTelegrafMedium';
+}
+body{background-color: #000;}
+
+
+/* Colors  */
+:root{
+    --itb-green: #CEFF00;
+    --itb-green-second: #22F08C;
+    --itb-ortus-green: #8FC73E;
+    --itb-dark-grey:     #292929;
+}
+
+.fontTelegrafBlack{font-family: 'fontTelegrafBlack';}
+.fontTelegrafMedium {font-family: 'fontTelegrafMedium';}
+
+/* End Colors  */
+
+* {
+    box-sizing: border-box;
+    transition:   background-image 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    font-family: 'fontTelegrafMedium';
+}
+a{
+    color: var(--itb-green);
+    text-decoration: none;
+}
+a:hover{color: var(--itb-green-second);}
+
+/* Speakers Card */
+.speakers-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+.card-speaker{
+    border-radius: 12px;
+    width: 100%;
+    background: #000;
+    max-width: 242px;
+    height: 242px;
+    padding: 15px;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff;
+    justify-content: center;
+}
+.card-speaker:hover{
+    background-color: var(--itb-green-second);
+    color: var(--itb-dark-grey);
+}
+
+.card-speaker-info span{
+    display: block; 
+    text-align: center;
+}
+.card-speaker-info .speaker-name{
+    font-family: fontTelegrafBlack;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+.speaker-position, .speaker-job{
+    font-family: fontTelegrafMedium;
+    font-size: 9px;
+    letter-spacing: 1px;
+}
+
+.speaker-photo {
+    position: relative;
+    max-width: 100%;
+  }
+  .speaker-photo img.image-hover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity .2s;
+  }
+  .card-speaker:hover img.image-hover {
+    opacity: 1;
+  }
+  .card-speaker:hover .image-main{
+    opacity: 0;
+    transition: opacity .2s;
+  }
+
+/* END Speakers Card */
+
+
+
+/* Agenda */
+.agenda-days .level a{
+    height: 34px;
+    align-items: center;
+    display: flex;
+    padding: 0 5px;
+}
+.agenda-days .level a.active{
+    color: #fff;
+    border-bottom: 4px solid var(--itb-green-second);
+}
+.agenda-days .nav-link{
+    background-color:#000;
+    border: 1px solid #fff;
+    color: #fff;
+    text-align: center;
+    font-family: 'fontTelegrafBlack';
+    line-height: 1;
+    letter-spacing: 1px;
+}
+.agenda-days .nav-link span{
+    display: block;
+    font-size: 12px;
+}
+.agenda-days .nav-link:hover{
+    background-color:#000;
+    border-color: var(--itb-green-second);
+    color: var(--itb-green-second);
+}
+.agenda-days .nav-link.active{
+    background-color:var(--itb-green-second);
+    border-color: var(--itb-green-second);
+    color: var(--itb-dark-grey);
+}
+
+.agenda-days .dropdown-menu{
+    background-color: var(--itb-dark-grey);
+}
+
+.agenda-days .dropdown-item{
+    color: #fff;
+}
+.dropdown-item.active, .dropdown-item:active{
+    background-color:var(--itb-green-second);
+    color: var(--itb-dark-grey);
+}
+.agenda-days .dropdown-item:focus, .agenda-days .dropdown-item:hover {
+    color: var(--itb-dark-grey);
+    background-color: var(--itb-green-second);
+}
+
+.agenda-item{
+    background-color: var(--itb-dark-grey);
+    color: var(--itb-green);
+}
+/* END Agenda */
+
+
+/* ICONS */
+@font-face {
+    font-family: 'myicon';
+    src: url('fonts/itbicon.woff2') format('woff2');
+}
+.icon::before, [class^="icon-"]::before, [class*=" icon-"]::before {
+    display: inline-block;
+    font-family: myicon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: -0.125em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+  .icon-chevron-down:before {
+    content: "\e900";
+  }
+  .icon-up:before {
+    content: "\e901";
+  }
+  .icon-facebook:before {
+    content: "\e902";
+  }
+  .icon-instagram:before {
+    content: "\e903";
+  }
+  .icon-linkedin:before {
+    content: "\e904";
+  }
+  .icon-location:before {
+    content: "\e905";
+  }
+  .icon-twitter:before {
+    content: "\e906";
+  }
+/* END ICONS  */
