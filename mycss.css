@@ -125,13 +125,13 @@ a:hover{color: var(--itb-green-second);}
 
 
 /* Agenda */
-.agenda-days .level a{
+.agenda-days .level-options a{
     height: 34px;
     align-items: center;
     display: flex;
     padding: 0 5px;
 }
-.agenda-days .level a.active{
+.agenda-days .level-options a.active{
     color: #fff;
     border-bottom: 4px solid var(--itb-green-second);
 }
@@ -174,12 +174,53 @@ a:hover{color: var(--itb-green-second);}
     color: var(--itb-dark-grey);
     background-color: var(--itb-green-second);
 }
-
+.tab-panel{padding: 30px 0;}
 .agenda-item{
     background-color: var(--itb-dark-grey);
     color: var(--itb-green);
+    align-items: center;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    /* border-left: 8px solid transparent; */
 }
+.agenda-item.no-session{
+    background-color: var(--itb-green-second);
+    color: var(--itb-dark-grey) !important;
+}
+.agenda-item.no-session span{
+    color: var(--itb-dark-grey) !important;
+}
+.sesion-name span{
+    display: block;
+}
+
+.sesion-name .title{
+    text-transform: uppercase;
+    color: #fff;
+    font-family:fontTelegrafBlack;
+    font-size: 1.2rem;
+}
+.sesion-name .level-tag{
+    text-transform: uppercase;
+    color: var(--itb-green);
+    font-size:0.6rem;
+    padding: 3px 10px;
+    border:1px solid var(--itb-green);
+    border-radius: 15px;
+    width: fit-content;
+}
+/* .lvl-general{border-color: transparent;}
+.lvl-beginner{border-color: #22F08C;}
+.lvl-intermediate{border-color: #22F08C;}
+.lvl-advanced{border-color: #22F08C;} */
+
+.agenda-item:hover{
+    background-color: var(--itb-green-second);
+    color: var(--itb-dark-grey) !important;
+}
+.agenda-item:hover span{color: var(--itb-dark-grey) !important; border-color: var(--itb-dark-grey);}
 /* END Agenda */
+
 
 
 /* ICONS */
@@ -221,5 +262,17 @@ a:hover{color: var(--itb-green-second);}
   }
   .icon-twitter:before {
     content: "\e906";
+  }
+  .icon-conferences:before {
+    content: "\e907";
+  }
+  .icon-meal:before {
+    content: "\e908";
+  }
+  .icon-speakers:before {
+    content: "\e909";
+  }
+  .icon-workshops:before {
+    content: "\e90a";
   }
 /* END ICONS  */
