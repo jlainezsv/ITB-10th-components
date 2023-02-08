@@ -50,6 +50,13 @@ nav .navbar-collapse .show {
   color: var(--itb-green);
   border-color: var(--itb-green);
 }
+nav .navbar-collapse .show .active {
+  color: var(--itb-dark-grey);
+  border-color: var(--itb-green);
+}
+nav .navbar-collapse .dropdown-toggle::after {
+  display: none;
+}
 nav .navbar-collapse .dropdown-menu {
   background-color: var(--itb-grey);
   border-radius: 12px;

@@ -137,7 +137,7 @@ a:hover{color: var(--itb-green-second);}
 }
 .agenda-days .nav-link{
     background-color:#000;
-    border: 1px solid #fff;
+    border: 1px solid transparent;
     color: #fff;
     text-align: center;
     font-family: 'fontTelegrafBlack';

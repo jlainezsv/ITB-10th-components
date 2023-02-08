@@ -46,8 +46,14 @@ nav{
         .show{
             color: var(--itb-green);
             border-color: var(--itb-green);
+            .active{
+                color: var(--itb-dark-grey);
+                border-color: var(--itb-green);
+            }
         }
-
+        .dropdown-toggle::after{
+            display: none;
+        }
         .dropdown-menu{
             background-color: var(--itb-grey);
             border-radius: 12px;
