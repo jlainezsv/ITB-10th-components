@@ -1,0 +1,110 @@
+:root {
+  --itb-green: #CEFF00;
+  --itb-green-second: #22F08C;
+  --itb-ortus-green: #8FC73E;
+  --itb-dark-grey: #292929;
+  --itb-grey: #171717;
+  --itb-dark-grey-second:#010101;
+}
+
+* {
+  box-sizing: border-box;
+  transition: background-image 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+body {
+  background: rgb(187, 187, 255);
+}
+
+.bg-navbar-fixed {
+  background-color: #000000;
+}
+
+nav {
+  flex-direction: row;
+  padding: 2px 20px;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 60px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+nav .navbar-collapse a {
+  display: flex;
+  padding: 6px 13px;
+  color: #fff;
+  text-decoration: none;
+  height: 36px;
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 12px;
+}
+nav .navbar-collapse a:hover {
+  color: var(--itb-green-second);
+  border-color: var(--itb-green-second);
+}
+nav .navbar-collapse a.active {
+  color: var(--itb-green);
+  border-color: var(--itb-green);
+}
+nav .navbar-collapse .show {
+  color: var(--itb-green);
+  border-color: var(--itb-green);
+}
+nav .navbar-collapse .dropdown-menu {
+  background-color: var(--itb-grey);
+  border-radius: 12px;
+  border: 0;
+}
+nav .navbar-collapse .dropdown-menu a {
+  border: 0px;
+  border-radius: 0px;
+}
+nav .navbar-collapse .dropdown-menu a:hover {
+  background-color: var(--itb-green-second);
+  color: var(--itb-dark-grey) !important;
+}
+nav .navbar-collapse .dropdown-item {
+  color: #fff;
+}
+nav .nav-menu {
+  padding: 0px;
+  list-style: none;
+  margin: 0px;
+  gap: 10px;
+}
+
+@media (max-width: 1199px) {
+  nav {
+    background-color: black;
+  }
+  nav .navbar-toggler {
+    color: var(--itb-green);
+  }
+  nav .navbar-collapse .navlogo {
+    display: none;
+  }
+  nav .navbar-collapse a.active {
+    background-color: var(--itb-green);
+    color: var(--itb-dark-grey);
+    border-color: var(--itb-green);
+  }
+  nav .nav-menu {
+    flex-direction: column;
+    padding: 30px 20px;
+  }
+  nav .nav-menu li {
+    width: 100%;
+    font-size: 20px;
+  }
+  nav .nav-menu li a {
+    height: auto;
+  }
+  nav .nav-menu .dropdown-menu {
+    position: initial;
+  }
+  nav .nav-menu .dropdown-menu a {
+    padding: 20px 20px 20px 40px;
+  }
+}
+
+/*# sourceMappingURL=nav.css.map */

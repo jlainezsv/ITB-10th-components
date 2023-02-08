@@ -1,0 +1,109 @@
+:root{
+    --itb-green: #CEFF00;
+    --itb-green-second: #22F08C;
+    --itb-ortus-green: #8FC73E;
+    --itb-dark-grey: #292929;
+    --itb-grey: #171717;
+    --itb-dark-grey-second:#010101;
+}
+
+* {
+    box-sizing: border-box;
+    transition:   background-image 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+body{background: rgb(187, 187, 255);}
+
+.bg-navbar-fixed{
+    background-color: #000000;
+}
+nav{
+    flex-direction: row;
+    padding: 2px 20px;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px; 
+    background-color: rgba($color: #000000, $alpha: 0.4);
+    .navbar-collapse {
+        a{
+            display: flex;
+            padding: 6px 13px;
+            color:#fff;
+            text-decoration: none;
+            height: 36px;
+            align-items: center;
+            border: 1px solid transparent;
+            border-radius: 12px;
+            &:hover{
+                color: var(--itb-green-second);
+                border-color: var(--itb-green-second);
+            }
+        }
+    
+        a.active{
+            color: var(--itb-green);
+            border-color: var(--itb-green);
+        }
+        .show{
+            color: var(--itb-green);
+            border-color: var(--itb-green);
+        }
+
+        .dropdown-menu{
+            background-color: var(--itb-grey);
+            border-radius: 12px;
+            border: 0;
+            a{
+                border: 0px;
+                border-radius: 0px;
+
+                &:hover{
+                    background-color: var(--itb-green-second);
+                    color: var(--itb-dark-grey) !important;
+                }
+            }
+        }
+        .dropdown-item{color: #fff;}
+    }
+    .nav-menu{
+        padding: 0px;
+        list-style: none;
+        margin: 0px;
+        gap: 10px;
+        
+    }
+
+}
+ 
+@media (max-width:1199px) { 
+    nav{
+        background-color: rgba($color: #000000, $alpha: 1);
+        .navbar-toggler{color: var(--itb-green);}
+        .navbar-collapse{
+            .navlogo{display: none;}
+             a.active {
+                background-color: var(--itb-green);
+                color: var(--itb-dark-grey);
+                border-color: var(--itb-green);
+            }
+        }
+        .nav-menu{
+            flex-direction: column;
+            padding:30px 20px;
+            li{
+                width: 100%;
+                font-size: 20px;
+                a{
+                   height: auto;
+                }
+            }
+              .dropdown-menu {
+                position: initial;
+                a{padding: 20px 20px 20px 40px;}
+              }
+                
+        }
+    }
+ }
+
+
+ 

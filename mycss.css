@@ -242,37 +242,41 @@ a:hover{color: var(--itb-green-second);}
 }
 
 
-  .icon-chevron-down:before {
-    content: "\e900";
-  }
-  .icon-up:before {
-    content: "\e901";
-  }
-  .icon-facebook:before {
-    content: "\e902";
-  }
-  .icon-instagram:before {
-    content: "\e903";
-  }
-  .icon-linkedin:before {
-    content: "\e904";
-  }
-  .icon-location:before {
-    content: "\e905";
-  }
-  .icon-twitter:before {
-    content: "\e906";
-  }
-  .icon-conferences:before {
-    content: "\e907";
-  }
-  .icon-meal:before {
-    content: "\e908";
-  }
-  .icon-speakers:before {
-    content: "\e909";
-  }
-  .icon-workshops:before {
-    content: "\e90a";
-  }
+.icon-hamburger:before {
+  content: "\e901";
+}
+.icon-conferences:before {
+  content: "\e907";
+}
+.icon-meal:before {
+  content: "\e908";
+}
+.icon-speakers:before {
+  content: "\e909";
+}
+.icon-workshops:before {
+  content: "\e90a";
+}
+.icon-chevron-down:before {
+  content: "\e900";
+}
+.icon-up:before {
+  content: "\e902";
+}
+.icon-facebook:before {
+  content: "\e903";
+}
+.icon-instagram:before {
+  content: "\e904";
+}
+.icon-linkedin:before {
+  content: "\e905";
+}
+.icon-location:before {
+  content: "\e906";
+}
+.icon-twitter:before {
+  content: "\e90b";
+}
+
 /* END ICONS  */
