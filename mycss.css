@@ -57,6 +57,19 @@ a{
 }
 a:hover{color: var(--itb-green-second);}
 
+/* Reboot */
+.btn-itb{
+    --bs-btn-bg:var(--itb-green);
+}
+
+.btn-itb-outline{
+    --bs-btn-border-color:var(--itb-green);
+    --bs-btn-color:var(--itb-green);
+}
+.btn-itb:hover, .btn-itb-outline:hover{
+    background-color: var(--itb-green-second);
+}
+/* END Reboot */
 /* Speakers Card */
 .speakers-container{
     display: flex;
@@ -280,3 +293,19 @@ a:hover{color: var(--itb-green-second);}
 }
 
 /* END ICONS  */
+
+
+/* SPONSORS */
+.on-hover{transition: opacity 0.20s ease-in-out;}
+.sponsor-card:hover .on-hover{opacity: 1 !important;}
+.h-platinum{height: 220px;}
+.h-silver{height:180px;}
+.h-gold{height: 1400px;}
+.h-bronce{height: 120px;}
+/* END Sponsors */
+
+/* Organizer */
+#organizer{
+    background-color: var(--itb-green);
+}
+/* End Organizer  */
