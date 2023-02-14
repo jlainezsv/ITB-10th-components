@@ -39,10 +39,12 @@ body{background-color: #000;}
     --itb-green-second: #22F08C;
     --itb-ortus-green: #8FC73E;
     --itb-dark-grey:     #292929;
+    
 }
 
 .fontTelegrafBlack{font-family: 'fontTelegrafBlack';}
 .fontTelegrafMedium {font-family: 'fontTelegrafMedium';}
+
 
 /* End Colors  */
 
@@ -295,3 +297,18 @@ a:hover{color: var(--itb-green-second);}
     background-color: var(--itb-green);
 }
 /* End Organizer  */
+
+
+/* Sponsors Layout */
+.bg-layout{
+    background: #000 url(/images/bg-lines-inverse.svg) top center no-repeat;
+    background-size: cover;
+}
+.bg-itb-green{background: var(--itb-green);}
+.bg-dark-grey{background: var(--itb-dark-grey);}
+.job-offer:hover div.btn{
+    background: var(--itb-green-second);
+    color: var(--itb-dark-grey);
+}
+
+/* END Sponsors Layout */
