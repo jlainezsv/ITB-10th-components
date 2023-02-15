@@ -312,3 +312,19 @@ a:hover{color: var(--itb-green-second);}
 }
 
 /* END Sponsors Layout */
+
+
+/* session layout  */
+.tag{font-size: 12px; letter-spacing: 2px;}
+.border-itb{border-color: var(--itb-green) !important;}
+.border-itb:hover{border-color: var(--itb-green-second) !important;}
+.session-details .card-speaker{
+    flex-direction: row;
+    max-width: initial;
+    gap:10px;
+    height: auto;
+}
+.session-details .card-speaker .speaker-photo{width: 35%;}
+.session-details .card-speaker .speaker-photo img{width: 100%;}
+.session-details .card-speaker .card-speaker-info span {text-align: left;}
+/* END session layout  */
