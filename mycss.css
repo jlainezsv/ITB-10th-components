@@ -328,3 +328,28 @@ a:hover{color: var(--itb-green-second);}
 .session-details .card-speaker .speaker-photo img{width: 100%;}
 .session-details .card-speaker .card-speaker-info span {text-align: left;}
 /* END session layout  */
+
+/* Community  */
+.support-box .text {
+    height: 35%;
+    background-position: center 2px!important;
+}
+.bounce, .support-box:hover .bounce {
+    transition: transform .2s ease-in-out;
+}
+.or-community .text {
+    background: url(images/ortus-community-text.svg) 50% no-repeat;
+}
+.or-community:hover .text {
+    background: url(images/ortus-community-text-hover.svg) 50% no-repeat;
+}
+.box-team:hover .text {
+    background: url(images/box-team-text-hover.svg) 50% no-repeat;
+}
+.box-team .text {
+    background: url(images/box-team-text.svg) 50% no-repeat;
+}
+.support-box:hover .bounce {
+    transform: translateY(-10px);
+}
+/* END Community  */

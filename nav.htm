@@ -17,9 +17,9 @@
     </style>
 </head>
   <body x-data="{ atTop: false }">
-    <nav id="navbar-example2" class="navbar navbar navbar-expand-xl"
+    <nav id="itb-nav-collapse" class="navbar navbar navbar-expand-xl"
     :class="{ 'shadow-lg': atTop, '': !atTop, 'sticky-top bg-navbar-fixed': atTop }"
-        @scroll.window="atTop = (window.pageYOffset < 60) ? false: true"
+        @scroll.window="atTop = (window.pageYOffset < 1) ? false: true"
     >
             <div class="container justify-content-between">
                 <a href="#" class="navlogo d-xl-none"><img src="/images/itb-logo.png" alt="ITB 10th Edition" width="150px"></a>        
@@ -31,14 +31,14 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                 <a href="#" class="navlogo"><img src="/images/itb-logo.png" alt="ITB 10th Edition" width="150px"></a>
                 <ul class="nav main-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading1">Agenda</a>
+                    <li class="nav-item">/track/4q88IbAn47f7GCQIFhbYkL
+                        <a class="nav-link" href="#agenda">Agenda</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading2">Speakers</a>
+                        <a class="nav-link" href="#speakers">Speakers</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#scrollspyHeading3">Sponsors</a>
+                        <a class="nav-link" href="#sponsors">Sponsors</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Info <i class="icon icon-chevron-down ms-2" style="font-size: 7px;"></i></a>
@@ -82,17 +82,13 @@
       </nav>
 
       
-      <div data-bs-spy="scroll" data-bs-target="#navbar-example2"  data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
-        <h4 id="">Oiverviewwwwww</h4>
-        <p style="height:700px; background-color: #000;">
-            <button type="button" class="btn btn-itb">Primary</button>
-            <button type="button" class="btn btn-itb-outline">Primary</button>
-        </p>
-        <h4 id="scrollspyHeading1">First heading</h4>
+      <div data-bs-spy="scroll" data-bs-target="#itb-nav-collapse"  data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+
+        <h4 id="agenda">First heading</h4>
         <p style="height:700px">...</p>
-        <h4 id="scrollspyHeading2">Second heading</h4>
+        <h4 id="speakers">Second heading</h4>
         <p style="height:700px">...</p>
-        <h4 id="scrollspyHeading3">Third heading</h4>
+        <h4 id="sponsors">Third heading</h4>
         <p style="height:700px">...</p>
         <h4 id="scrollspyHeading4">Fourth heading</h4>
         <p style="height:700px">...</p>
