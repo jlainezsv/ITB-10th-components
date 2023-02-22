@@ -17,21 +17,23 @@
     </style>
 </head>
   <body x-data="{ atTop: false }">
+
     <nav id="itb-nav-collapse" class="navbar navbar navbar-expand-xl"
     :class="{ 'shadow-lg': atTop, '': !atTop, 'sticky-top bg-navbar-fixed': atTop }"
         @scroll.window="atTop = (window.pageYOffset < 1) ? false: true"
+
     >
             <div class="container justify-content-between">
-                <a href="#" class="navlogo d-xl-none"><img src="/images/itb-logo.png" alt="ITB 10th Edition" width="150px"></a>        
-                <button type="button" class="navbar-toggler p-2" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <!-- <span class="navbar-toggler-icon"></span> -->
+                <a href="#" class="navlogo d-xl-none"><img src="/images/itb-logo.png" alt="ITB 10th Edition" width="150px"></a>      
+
+                <button id="nav-btn-toggler" class="navbar-toggler" type="button p-2 collapsed" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse">
                     <i class="icon icon-hamburger"></i>
                 </button>
                 
-            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" aria-labelledby="navbarCollapse">
                 <a href="#" class="navlogo"><img src="/images/itb-logo.png" alt="ITB 10th Edition" width="150px"></a>
                 <ul class="nav main-nav">
-                    <li class="nav-item">/track/4q88IbAn47f7GCQIFhbYkL
+                    <li class="nav-item">
                         <a class="nav-link" href="#agenda">Agenda</a>
                     </li>
                     <li class="nav-item">
@@ -40,22 +42,22 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#sponsors">Sponsors</a>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Info <i class="icon icon-chevron-down ms-2" style="font-size: 7px;"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#scrollspyHeading4">About</a></li>
-                            <li><a class="dropdown-item" href="#scrollspyHeading5">Venue</a></li>
-                            <li><a class="dropdown-item" href="#scrollspyHeading6">Discounts</a></li>
-                            <li><a class="dropdown-item" href="#scrollspyHeading7">Hosts</a></li>
-                            <li><a class="dropdown-item" href="#scrollspyHeading8">FAQs</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading4">About</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading5">Venue</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading6">Discounts</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading7">Hosts</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading8">FAQs</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
+                    <li class="dropdown">
                         <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Community <i class="icon icon-chevron-down ms-2" style="font-size: 7px;"></i></a>
                         <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#scrollspyHeading9">Our Community</a></li>
-                        <li><a class="dropdown-item" href="#scrollspyHeading10">ITB Journey</a></li>
-                        <li><a class="dropdown-item" href="#scrollspyHeading11">ITB Reviews</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading9">Our Community</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading10">ITB Journey</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading11">ITB Reviews</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
@@ -81,8 +83,11 @@
     </div>
       </nav>
 
-      
-      <div data-bs-spy="scroll" data-bs-target="#itb-nav-collapse"  data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+<!-- 
+      <div style="height: 1800px"></div> -->
+
+      <div data-bs-spy="scroll" data-offset="100" data-bs-target="#itb-nav-collapse" data-bs-smooth-scroll="true" data-bs-root-margin="0px 0px -40%" class="scrollspy-example" tabindex="0">
+      <!-- <div data-bs-spy="scroll" data-bs-target="#itb-nav-collapse"  data-bs-smooth-scroll="true" class="scrollspy-example bg-light p-3 rounded-2" tabindex="0"> -->
 
         <h4 id="agenda">First heading</h4>
         <p style="height:700px">...</p>
@@ -108,11 +113,71 @@
         <p style="height:700px">...</p>
       </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
-  </body>
+    <script>
+        // Autoclose navbar when click a link/button or when click outside of navbar 
+        const navLinks = document.querySelectorAll('.nav-item')
+        const menuToggle = document.getElementById('navbarCollapse')
+        const bsCollapse = new bootstrap.Collapse(menuToggle, {toggle:false})
+        navLinks.forEach((l) => {
+            l.addEventListener('click', () => { 
+                if(window.innerWidth < 1200){
+                    bsCollapse.toggle(); 
+                    console.log("mobile, click en nav-links");
+                    
+                }else {
+                    console.log("desk, click en nav-links");
+                };
+                
+            })
+        });
+        document.addEventListener("click", function (event) {
+             // if the clicked element isn't child of the navbar, you must close it if is open
+            if (!event.target.closest("#navbarCollapse") && document.getElementById("navbarCollapse").classList.contains("show")) {
+                document.getElementById("nav-btn-toggler").click();
+                console.log("mobile, click fuera del menu");
+            }
+         });  
+         
+        // autoCloseNavbarMobile = () => {
+        //     const winWidth = window.innerWidth;
+        //     if(winWidth < 1200){
+        //         navLinks.forEach((l) => {
+        //             l.addEventListener('click', () => { 
+        //                 bsCollapse.toggle(); 
+        //                 console.log("mobile, click en links")
+        //              })
+        //         });
+
+        //         document.addEventListener("click", function (event) {
+        //             // if the clicked element isn't child of the navbar, you must close it if is open
+        //             if (!event.target.closest("#navbarCollapse") && document.getElementById("navbarCollapse").classList.contains("show")) {
+        //                 document.getElementById("nav-btn-toggler").click();
+        //                 console.log("mobile, click fuera del menu");
+        //             }
+        //         });            
+        //     } else {
+        //         navLinks.forEach((l) => {
+        //             l.addEventListener('click', () => { console.log("desktop, click en links"); })
+        //         });
+
+        //         document.addEventListener("click", function (event) {
+        //             console.log("desktop, click fuera del menu");
+        //         });            
+        //     }
+        // }
+        
+
+
+        // window.onload = function () {
+        //     autoCloseNavbarMobile();
+        // }
+        // window.onresize = function() {
+        //     autoCloseNavbarMobile();
+        // };
+        // Autoclose navbar when click a link/button or when click outside of navbar 
+    </script>
+</body>
 </html>
 
 
-
-
-
-
+ 

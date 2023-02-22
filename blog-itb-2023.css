@@ -1,0 +1,667 @@
+*{font-family: 'fontTelegrafMedium';}
+#blog {
+    background: #000 url(/images/bg-lines-inverse.svg) no-repeat;
+    background-size: contain;
+    background-attachment: fixed;
+  }
+  .post {
+    margin-bottom: 30px;
+    background-color: var(--itb-dark-grey);
+    padding: 30px;
+    border-radius: 10px;
+  }
+  
+  .post h2 a{
+    font-family: 'fontMadeMedium';
+  }
+  h1{ font-family: 'fontMadeMedium'; color: var(--itb-green);}
+
+
+/* PAGINATION */
+.pull-left {float: left!important;}
+/* END PAGINATION */
+
+  .author-avatar {
+    float: left;
+    background-color: inherit;
+    border: 0;
+    padding: 0px;
+    margin: 0 12px 0 0;
+}
+.author-avatar img{
+    border-radius: 50%;
+    border: 1px solid #fff;
+}
+.post-meta, .categoryList, h3 i {
+    color: var(--itb-green);
+}
+.well {
+    min-height: 20px;
+    padding: 19px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #5A5A5A;
+    border: 0;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 5%);
+}
+.alert-info {
+    --bs-alert-color: var(--itb-green);
+    --bs-alert-bg: #4C5527;
+    --bs-alert-border-color: var(--itb-green);
+}
+  #wrapper {
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+  .panel {
+    border-radius: 10px;
+  }
+  .img-responsive {
+    width: 100%;
+    object-fit: fill;
+    object-position: center;
+  }
+  .font-bold {
+    font-weight: 700;
+  }
+  .btn-success-ortus {
+    color: #061324;
+    background-color: #8fc73e;
+    border-color: #8fc73e;
+  }
+  .btn-success-ortus:hover {
+    color: #fff;
+    background-color: #83b839;
+    border-color: #83b839;
+  }
+  .navbar-default {
+    background-color: rgba(35, 165, 191, 0.9);
+  }
+  .navbar-default .container,
+  .navbar-inverse .container {
+    padding: 0;
+  }
+  .navbar-default .navbar-nav > li > a {
+    color: #efefef;
+    font-weight: 700;
+  }
+  .navbar-default .navbar-nav > .active > a,
+  .navbar-default .navbar-nav > .active > a:hover,
+  .navbar-default .navbar-nav > .active > a:focus {
+    background-color: transparent;
+    color: #a0d853;
+  }
+  .container > .navbar-header,
+  .container > .navbar-collapse {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  @media only screen and (max-width: 991px) {
+    .nav > li > a {
+      padding: 10px;
+    }
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--itb-green);
+  }
+  body {
+  }
+  body#home-2017 {
+    padding-top: 32px;
+  }
+  .btn-blk {
+    background: #000;
+    color: #fff;
+  }
+  .btn-blk:hover,
+  .btn-blk:focus,
+  .btn-blk.focus {
+    color: #fff;
+  }
+  .frame-line {
+    border: 1px solid #333;
+    padding: 20px;
+  }
+  .embed-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    height: auto;
+  }
+  .embed-container iframe,
+  .embed-container object,
+  .embed-container embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #home-2017 .hero .container {
+    position: relative;
+    padding: 0 15px 20px;
+    text-align: center;
+  }
+  #home-2017 .hero img {
+    margin: 95px auto 20px;
+  }
+  #home-2017 .hero h2 .small {
+    color: #000;
+  }
+  #pricing {
+    background-color: #2fb3c6;
+  }
+  @media only screen and (min-width: 480px) {
+    body#home {
+      background: #fff url(/includes/images/into-the-box-2017.png) no-repeat top
+        center fixed;
+    }
+    #home #wrapper {
+      margin-top: 537px;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    #home-2017 .hero {
+      background: url(/includes/images/houston-bg.jpg);
+      background-size: cover;
+      border-bottom: 5px solid #000;
+      position: relative;
+    }
+    #home-2017 .hero,
+    #home-2017 .hero .left-panel,
+    #home-2017 .hero .container {
+      height: 450px;
+    }
+    #home-2017 .hero .container {
+      padding: 0 20px 20px 195px;
+    }
+    #home-2017 .hero .left-panel {
+      background: url(/includes/images/star-bg.jpg);
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      width: 165px;
+      z-index: 1;
+    }
+    #home-2017 .hero img {
+      margin: 55px auto 20px;
+    }
+    #home-2017 .hero .overlap {
+      background: url(/includes/images/cowboy-throwing-lasso.png);
+      height: 232px;
+      position: absolute;
+      bottom: -4px;
+      right: -45px;
+      width: 232px;
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    #home-2017 .hero,
+    #home-2017 .hero .left-panel,
+    #home-2017 .hero .container {
+      height: 580px;
+    }
+    #home-2017 .hero {
+      background-size: initial;
+    }
+    #home-2017 .hero .left-panel {
+      width: 235px;
+    }
+    #home-2017 .hero .container {
+      padding: 0 0 20px 240px;
+    }
+    #home-2017 .hero img {
+      margin: 65px auto 50px;
+    }
+    #home-2017 .hero .overlap {
+      right: 0;
+    }
+  }
+  @media only screen and (min-width: 1170px) {
+    #home-2017 .hero .container {
+      padding: 0 200px;
+    }
+    #home-2017 .hero .overlap {
+      right: -45px;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    body#home {
+      background: #fff none no-repeat;
+    }
+    #home #wrapper {
+      margin-top: 72px;
+    }
+  }
+  #countdown {
+    width: 65%;
+    margin: 0 auto;
+  }
+  .cd-itm {
+    border-radius: 75px;
+    border: solid 7px #343539;
+    width: 150px;
+    height: 150px;
+    background-color: rgba(154, 155, 158, 0.65);
+  }
+  .cd-itm-body {
+    padding-top: 45px;
+  }
+  .cd-circle {
+    margin: 10px auto;
+    color: #fff;
+    font-family: open sans, arial, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+  }
+  .in-circle {
+    border-radius: 68px;
+    border: solid 2.5px;
+    width: 136px;
+    height: 136px;
+  }
+  .cd-metric {
+    font-size: 18px;
+    font-weight: 400;
+  }
+  .cd-nr {
+    margin-bottom: 0;
+  }
+  @media all and (min-width: 768) and (max-width: 992px) {
+    #countdown {
+      width: 50%;
+    }
+  }
+  @media all and (max-width: 767px) {
+    body {
+      padding-top: 43px;
+    }
+    #countdown {
+      width: 50%;
+    }
+  }
+  @media all and (max-width: 659px) {
+    #countdown {
+      width: 60%;
+    }
+  }
+  @media all and (max-width: 525px) {
+    #countdown {
+      width: 70%;
+    }
+  }
+  @media all and (max-width: 454px) {
+    #countdown {
+      width: 80%;
+    }
+  }
+  @media all and (max-width: 402px) {
+    #countdown {
+      width: 100%;
+    }
+  }
+  #interior .main {
+    margin-top: 0;
+  }
+  #blog #wrapper,
+  #interior #wrapper {
+    margin-top: 75px;
+  }
+  .identity img {
+    display: block;
+    margin: 65px auto -50px;
+  }
+  #products {
+    background: #ccc url(/includes/images/wave.png) repeat;
+    padding: 20px;
+    text-align: center;
+  }
+  #products .product {
+    display: inline-block;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 50%;
+  }
+  #products .product img {
+    height: 90px;
+  }
+  #products .product:hover {
+    background-color: none;
+  }
+  #home-2017 #sponsors {
+    background: #ccc url(/includes/images/wave.png) repeat;
+    padding: 100px 48px 48px;
+    text-align: center;
+  }
+  #sponsors .sponsor {
+    display: inline-block;
+    margin: 12px;
+  }
+  .speaker {
+    display: inline-block;
+    width: 80px;
+    margin: 3px;
+    text-align: center;
+    font-size: 13.5pt;
+    cursor: pointer;
+  }
+  .speaker:hover {
+    border-color: #20c4e5;
+  }
+  #speakers {
+    background-color: #ececec;
+    background-color: rgba(236, 236, 236, 0.7);
+  }
+  #speakers .active {
+    border-color: #20c4e5;
+  }
+  .speaker i {
+    font-size: 4em;
+    color: #fff;
+  }
+  .speaker .gravitar {
+    height: 80px;
+    background-color: #eee;
+    border: 5px solid #ccc;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  .speaker.active .gravitar,
+  .speaker:hover .gravitar {
+    border-color: #20c4e5;
+  }
+  .speaker .gravitar img {
+    width: 70px;
+    margin-bottom: 10px;
+  }
+  .speaker caption {
+    font-size: 0.87em;
+    font-weight: 700;
+  }
+  .speakerInfoBox {
+    margin: 12px;
+    padding: 12px;
+    background: #2fb3c6 url(../images/ColdBox-swirl-tile.png) no-repeat top center;
+    border-radius: 12px;
+  }
+  .session-speaker {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 14px;
+    margin-top: 0;
+  }
+  table.sessions td {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #777;
+  }
+  table.sessions > tbody > tr > td {
+    border: 1px solid #fff;
+  }
+  table.sessions td.session-time {
+    width: 25%;
+  }
+  #sessions,
+  #overview,
+  #venue {
+    background-color: #212b31;
+    color: #fff;
+  }
+  #home-2017 #sessions,
+  #home-2017 #overview,
+  #home-2017 #venue {
+    background-color: #000;
+  }
+  #sessions,
+  #overview,
+  #venue,
+  #speakers,
+  #products,
+  #sponsors {
+    background-color: transparent;
+  }
+  #sessions article,
+  #overview article,
+  #venue article {
+    padding: 12px;
+    margin-top: 24px;
+  }
+  #sessions h1,
+  #overview h1,
+  #venue h1 {
+    color: #fff;
+  }
+  #sessions h2,
+  #overview h2,
+  #venue h2 {
+    color: #2fb3c6;
+  }
+  #sessions h4,
+  #overview h4,
+  #venue h4 {
+    color: #e2ad40;
+  }
+  #sessions h4 a i {
+    color: #2fb3c6;
+    margin-left: 4px;
+    text-decoration: none;
+  }
+  .session-detail {
+    min-height: 330px;
+  }
+  #sessions .modal-header {
+    background-color: #212b31;
+  }
+  #sessions .modal-header .modal-title {
+    color: #2eb3c6 !important;
+    font-size: 1.8rem;
+    line-height: 1;
+  }
+  #sessions .modal-body {
+    color: #777;
+  }
+  #sessions .modal-footer {
+    background-color: #36abc2;
+  }
+  .speakerLinks a i {
+    text-decoration: none;
+  }
+  .ticketBox {
+    padding: 24px;
+    color: #fff;
+  }
+  .priceWrap {
+    border: 3px solid #4ad3ef;
+    background-color: #fdfdfd;
+    border-radius: 12px;
+  }
+  .priceWrap .price {
+    padding: 36px;
+    font-size: 4em;
+    text-align: center;
+    float: left;
+    font-weight: 700;
+    background-color: #23a5bf;
+    border-radius: 10px 0 0 10px;
+  }
+  .priceWrap .discount {
+    padding: 36px;
+    margin-left: 24px;
+    color: #a0a0a0;
+    float: left;
+  }
+  .venue {
+    padding: 24px;
+  }
+  .venue h2 {
+    font-size: 2.5em;
+    color: #fff;
+  }
+  .venue .hotel {
+    padding: 18px;
+    background-color: #23a5bf;
+    border: 3px solid #4ad3ef;
+    border-radius: 10px;
+  }
+  #home section {
+    padding: 100px 0 48px;
+  }
+  #blog section {
+    padding: 0;
+  }
+  #blog footer.paging {
+    padding: 0 15px;
+  }
+  #blog #commentFormShell {
+    padding: 10px 15px;
+  }
+  .doormat .form-control {
+    background-color: #2c2e2f;
+    color: #fff;
+  }
+  .lead {
+    color: #9b9b9b;
+  }
+  .padding10 {
+    padding: 10px;
+  }
+  .dark-tabs .nav-tabs {
+    margin: 20px auto;
+    border-bottom: none;
+  }
+  .dark-tabs .nav-tabs > li > a {
+    color: #979797;
+    background-color: #333;
+    border: 1px solid #333;
+  }
+  .dark-tabs .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
+    background-color: #212b31;
+    border: 4px solid #2fb3c6;
+    color: #fff;
+  }
+  .dark-tabs .tab-pane {
+    padding: 24px 12px;
+    background-color: #212b31;
+    border-right: 1px solid #212b31;
+    border-bottom: 1px solid #212b31;
+    border-left: 1px solid #212b31;
+  }
+  .dark-tabs .no-tables td,
+  .dark-tabs .no-tables th {
+    border-top: none;
+    border-bottom: none;
+  }
+  @media (min-width: 768px) {
+    .dark-tabs .sessionCol-BoxRoom,
+    .dark-tabs .sessionCol-OrtusRoom {
+      width: 40%;
+    }
+    .dark-tabs .session h2 {
+      font-size: 2em;
+    }
+  }
+  .dark-tabs .no-tables .track {
+    background-color: #333;
+    margin: 15px;
+    padding: 10px;
+    text-align: center;
+  }
+  .dark-tabs .session h2 {
+    font-size: 1.5em;
+  }
+  .dark-tabs .session-time {
+    color: #e2ad40;
+    padding: 30px 15px;
+    width: 20%;
+  }
+  .dark-tabs .session-keynote-time {
+    color: #e2ad40;
+    padding: 45px 15px;
+  }
+  #sessions .dark-tabs article {
+    margin: 15px;
+  }
+  .dark-tabs .session-detail {
+    min-height: 300px;
+  }
+  .dark-tabs .session-keynote h2 {
+    margin-top: 0;
+    text-align: center;
+  }
+  .dark-tabs .session-BoxRoom {
+    background-color: #003b50;
+  }
+  .dark-tabs .session-OrtusRoom {
+    background-color: #000;
+  }
+  .dark-tabs .session-general {
+    border: 1px dashed #999;
+  }
+  @media (max-width: 767px) {
+    .dark-tabs .session-keynote h2 {
+      text-align: left;
+    }
+    .dark-tabs .session-keynote-time,
+    #sessions .dark-tabs .session-keynote {
+      margin: 15px;
+      padding: 15px 15px 15px 25%;
+      width: 75%;
+    }
+    .no-tables table,
+    .no-tables thead,
+    .no-tables tbody,
+    .no-tables th,
+    .no-tables td,
+    .no-tables tr {
+      display: block;
+    }
+    .no-tables thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    .no-tables tr {
+      border: 1px solid #666;
+      position: relative;
+    }
+    .no-tables td {
+      border: none;
+      border-bottom: 1px solid #eee;
+      position: relative;
+      padding-left: 30%;
+      white-space: normal;
+      text-align: left;
+    }
+    .dark-tabs .session-time {
+      padding: 15px 15px 15px 30%;
+      width: auto;
+    }
+    .dark-tabs .no-tables td {
+      padding: 8px 8px 8px 30%;
+    }
+    .no-tables td:before {
+      position: absolute;
+      top: 6px;
+      left: 6px;
+      width: 25%;
+      padding-right: 10px;
+      white-space: nowrap;
+      text-align: left;
+      font-weight: 700;
+    }
+    .no-tables td:before {
+      content: attr(data-title);
+    }
+  }
+  
