@@ -160,6 +160,9 @@ a:hover{color: var(--itb-green-second);}
         font-family: 'fontMadeMedium';
     }
 }
+#mc-embedded-subscribe-form .btn-itb:hover, #mc-embedded-subscribe-form .btn-itb:active, #mc-embedded-subscribe-form .btn-itb:focus{
+    background-color: var(--itb-green-second);
+}
 /* END EMBEDED SUBSCRIBE */
 
 /* Agenda */
