@@ -39,7 +39,7 @@ body{background-color: #000;}
     --itb-green-second: #22F08C;
     --itb-ortus-green: #8FC73E;
     --itb-dark-grey:     #292929;
-    
+    --bs-code-color: #FFBA00;
 }
 
 .fontTelegrafBlack{font-family: 'fontTelegrafBlack';}
@@ -70,6 +70,7 @@ a:hover{color: var(--itb-green-second);}
 }
 .btn-itb:hover, .btn-itb-outline:hover{
     background-color: var(--itb-green-second);
+    color: var(--itb-dark-grey);
 }
 /* END Reboot */
 /* Speakers Card */
@@ -146,9 +147,6 @@ a:hover{color: var(--itb-green-second);}
     border-bottom-left-radius: 0;
 }
 @media(max-width:768px){
-    #mc-embedded-subscribe-form .input-group{
-        flex-direction: column;
-    }
     #mc-embedded-subscribe-form .input-group{
         flex-direction: column;
         gap: 15px;
@@ -267,44 +265,81 @@ a:hover{color: var(--itb-green-second);}
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
-
-
-.icon-hamburger:before {
-  content: "\e901";
-}
-.icon-conferences:before {
-  content: "\e907";
-}
-.icon-meal:before {
-  content: "\e908";
-}
-.icon-speakers:before {
-  content: "\e909";
-}
-.icon-workshops:before {
-  content: "\e90a";
-}
 .icon-chevron-down:before {
-  content: "\e900";
-}
-.icon-up:before {
-  content: "\e902";
-}
-.icon-facebook:before {
-  content: "\e903";
-}
-.icon-instagram:before {
-  content: "\e904";
-}
-.icon-linkedin:before {
-  content: "\e905";
-}
-.icon-location:before {
-  content: "\e906";
-}
-.icon-twitter:before {
-  content: "\e90b";
-}
+    content: "\e918";
+  }
+  .icon-meal:before {
+    content: "\e900";
+  }
+  .icon-close:before {
+    content: "\e901";
+  }
+  .icon-comment:before {
+    content: "\e902";
+  }
+  .icon-conferences:before {
+    content: "\e903";
+  }
+  .icon-copying:before {
+    content: "\e904";
+  }
+  .icon-edit:before {
+    content: "\e905";
+  }
+  .icon-github:before {
+    content: "\e906";
+  }
+  .icon-hamburger:before {
+    content: "\e907";
+  }
+  .icon-heart:before {
+    content: "\e908";
+  }
+  .icon-facebook:before {
+    content: "\e909";
+  }
+  .icon-instagram:before {
+    content: "\e90a";
+  }
+  .icon-linkedin:before {
+    content: "\e90b";
+  }
+  .icon-location:before {
+    content: "\e90c";
+  }
+  .icon-twitter:before {
+    content: "\e90d";
+  }
+  .icon-like:before {
+    content: "\e90e";
+  }
+  .icon-link:before {
+    content: "\e90f";
+  }
+  .icon-share:before {
+    content: "\e910";
+  }
+  .icon-soundcloud:before {
+    content: "\e911";
+  }
+  .icon-speakers:before {
+    content: "\e912";
+  }
+  .icon-star:before {
+    content: "\e913";
+  }
+  .icon-tag:before {
+    content: "\e914";
+  }
+  .icon-up:before {
+    content: "\e915";
+  }
+  .icon-web:before {
+    content: "\e916";
+  }
+  .icon-workshops:before {
+    content: "\e917";
+  }
 
 /* END ICONS  */
 
@@ -389,4 +424,29 @@ a:hover{color: var(--itb-green-second);}
     body{
         padding-top: 60px;
     }
+}
+
+
+
+
+
+.alert-info {
+    --bs-alert-color: var(--itb-green);
+    --bs-alert-bg: #4C5527;
+    --bs-alert-border-color: var(--itb-green);
+}
+
+code {
+    color: var(--bs-code-color);
+}
+.code-container{
+    background-color: #5A5A5A;
+    padding: 15px;
+}
+
+/* Speakers Mobile */
+@media (max-width: 768px) {
+.card-speaker{width: 40%; padding: 5px; height: auto;}
+.speaker-photo img{max-width: 90px;}
+#speakers .speaker-position, #speakers .speaker-job{display: none;}
 }

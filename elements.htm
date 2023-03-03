@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://scripts.sirv.com/sirvjs/v3/sirv.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="mycss.css">
+    <style>
+      *{color: #fff;}
+    </style>
+</head>
+<body>
+    <p><a class="alert alert-info d-block" href="https://github.com/grantcopley/itb-2023-cbwire-aplinejs-workshop" role="alert">https://github.com/grantcopley/itb-2023-cbwire-aplinejs-workshop</a></p>
+
+
+    <h1>accordion</h1>
+   
+    <h2>Schedule / Outline</h2>
+    <!-- Accordion  -->
+<div class="accordion bg-dark" id="scheduling">
+    <div class="accordion-item border-0 bg-dark">
+      <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          1. Introduction        
+        </button>
+      </h2>
+      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <ul>
+            <li>The NB (non-blocking) movement</li>
+            <li>Has made NodeJS shine, but other languages support this as well.</li>
+            <li>Movement to more async/parallel computations</li>
+            <li>Overall movement to computations</li>
+            <li>Lessons from Callbacks
+            <ul>
+              <li>Also referred to as <strong>Callback hell</strong> 🔥
+              <ul>
+                <li>TODO: EXAMPLE</li>
+                <li><strong><a href="http://01-callback-hell.md">01-callback-hell.md</a></strong></li>
+              </ul>
+              </li>
+              <li>Can make developers cry 😢</li>
+              <li>Never ending nesting collection of closures/functions 🕷️</li>
+              <li>Who has been there before? Don't lie! 🤥</li>
+            </ul>
+            </li>
+            <li>Movement to <strong>promises</strong>
+            <ul>
+              <li>JavaScript has made this very popular</li>
+              <li>To get some sanity back into to development from call back hellfire 🔥</li>
+              <li>Can have 3 different states:
+              <ul>
+                <li><code>Resolve</code> : When completed</li>
+                <li><code>Reject</code> : Error or something else</li>
+                <li><code>Pending</code> : Not finished executing yet</li>
+              </ul>
+              </li>
+              <li>Cancel and Resolve them programmatically</li>
+              <li>Two channels of communication <a href="https://www.notion.so/ortussolutions/samples/01-promises-track.md">Promises Track</a>
+              <ul>
+                <li><code>Data</code></li>
+                <li><code>Error</code></li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+            <li>What about ColdFusion?
+            <ul>
+              <li><code>cfthread</code>, right?? right? 🔨
+              <ul>
+                <li>Great for <strong>very</strong> basic threading</li>
+                <li>Easy, but plagued with issues, which makes developers ALSO cry :😢
+                <ul>
+                  <li>No way to choose where it runs (thread pool)</li>
+                  <li>No concept of returning data, it's up to you to monitor/track data</li>
+                  <li>Hard to manage them (cancel, monitor, pause)</li>
+                  <li>No functional approaches</li>
+                  <li>Managing multiple threads and joining <s>can be</s> is cumbersome and horrible</li>
+                </ul>
+                </li>
+                <li>Example:
+                <ul>
+                  <li><strong>01-coldbox-interceptor-state (Show them the InterceptorState.processAsyncAll() method)</strong></li>
+                  <li>Both Challenge, convert to async package</li>
+                </ul>
+                </li>
+                <li>Nothing existed until ACF2018/Lucee 5.3 =&gt; <code>runAsync()</code>
+                <ul>
+                  <li>A step up, but not a big step</li>
+                  <li>Still Many Issues:
+                  <ul>
+                    <li>Backed by a custom wrapper to <code>java.util.concurrent.Future</code></li>
+                    <li>Simplistic error handler with no way to recover or continue executing pipelines after an exception. Concept of two tracks is broken!</li>
+                    <li>No way to choose or reuse the executor to run the sub-sequent <code>then()</code> operations. Lucee actually creates a new <code>singleThreadExecutor()</code> for EVERY <code>then()</code> operation.</li>
+                    <li>No way to operate on multiple futures at once
+                    <ul>
+                      <li>TODO: Eric Example</li>
+                    </ul>
+                    </li>
+                    <li>No way to combine/compose futures</li>
+                    <li>Only works with closures, does not work on actually calling component methods</li>
+                  </ul>
+                  </li>
+                  <li>xmap(), xeach() parallel processing
+                  <ul>
+                    <li>Adobe 2021 + Lucee</li>
+                    <li>Limited to 50 threads in Adobe, 10 standard</li>
+                    <li>Easy to use</li>
+                    <li>Not easy to do exception handling</li>
+                    <li>Short circuit exception handling
+                    <ul>
+                      <li>NO control over it</li>
+                      <li>It will break out whenever an exception is detected and leave unprocessed items in a collection</li>
+                    </ul>
+                    </li>
+                    <li>No expected consistency</li>
+                  </ul>
+                  </li>
+                  <li><strong>Asynchronous programming is NOT EASY!</strong>
+                  <ul>
+                    <li>Concurrency issues / Race conditions
+                    <ul>
+                      <li>Know the limitations on shared resources</li>
+                      <li>Some data structures allow for multiple threads, some don’t, some you need to wrap to make them concurrent</li>
+                      <li><code>java.util.concurrent</code> package</li>
+                      <li>Read before write</li>
+                      <li>Locking becomes part of your life, unfortunately</li>
+                      <li>Read before Write</li>
+                      <li>Atomic operations</li>
+                      <li>Idempotent operations</li>
+                      <li>Timestamping</li>
+                    </ul>
+                    </li>
+                    <li>Dealing with multiple threads
+                    <ul>
+                      <li>cfthread you have to be the manager</li>
+                      <li>runAsync you can’t be the manager</li>
+                      <li>Sharing data between threads</li>
+                    </ul>
+                    </li>
+                    <li>No more writedump/abort
+                    <ul>
+                      <li>Logs become your best friend</li>
+                      <li>ColdBox Debugger Panel : tracers, all incoming events are tracked</li>
+                    </ul>
+                    </li>
+                    <li>Easy to spot an asynchronous developer, he is in the corner, crying.</li>
+                  </ul>
+                  </li>
+                </ul>
+                </li>
+                <li>🤢 We have two approaches to threading which are extremely simplistic and not powerful at all</li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border-0">
+      <h2 class="accordion-header" id="headingTwo">
+        <button class="accordion-button collapsed  bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          2. Intro to ColdBox Futures
+        </button>
+      </h2>
+      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <ol>
+            <li>Similar to JavaScript Promises but in CF backed by <code>CompletableFuture</code> Java API</li>
+          </ol>
+          
+          <ul>
+            <li>What about Java?
+            <ul>
+              <li>JDK 8 Introduced <code>CompletableFutures</code>, <code>CompletionStages</code>, Executors, Lambdas and much more.</li>
+              <li>🦄 Java <code>CompletableFutures</code> are like JavaScript Promises, but you know Java devs, over complicate things, even names!</li>
+              <li>We have ported the majority of this functionality to CFML: <code>ColdBox Futures</code>
+              <ul>
+                <li>ColdBox, WireBox, CacheBox and LogBox</li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+            <li>Adapted for our dynamic language =&gt; many enhancements</li>
+            <li><code>AsyncManager</code> class in charge of all async capabilities
+            <ul>
+              <li>Standalone: Part of WireBox — create an instance as a singleton</li>
+              <li>ColdBox: <code>async()</code> or <code>inject:AsyncManager@coldbox</code></li>
+              <li>Functions:
+              <ul>
+                <li>Create Futures</li>
+                <li>Create/Manage Executors</li>
+                <li>Create/Manage Schedule Tasks</li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+            <li>Intro to Executors
+            <ul>
+              <li>What is an executor</li>
+              <li>Default executor</li>
+              <li>We can customize it later on.</li>
+            </ul>
+            </li>
+            <li>cbFutures Stages - <a href="http://02-cbfutures-stages.md">02-cbfutures-stages.md</a>
+            <ul>
+              <li>Running</li>
+              <li>Completed</li>
+              <li>CompletedExceptionally</li>
+              <li>Cancelled</li>
+            </ul>
+            </li>
+            <li>Create a future - 03-creating-future.cfc
+            <ul>
+              <li>EXAMPLE
+              <ul>
+                <li>Make a future that prints to the console</li>
+                <li>Make a future that returns a message to print to the console after 2 seconds</li>
+                <li>Something about timeout and default values….
+                <ul>
+                  <li>CAVEAT, this does <strong>not</strong> stop the thread</li>
+                </ul>
+                </li>
+                <li>Make a future that throws an exception and see what happens with <code>.get()</code></li>
+              </ul>
+              </li>
+              <li>RUNNING EXAMPLE OPTION
+              <ul>
+                <li>Read 3 files asynchronously</li>
+                <li>Print the output in order</li>
+                <li>Print the output as soon as you can</li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border-0">
+      <h2 class="accordion-header" id="headingThree">
+        <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          3. Magical Pipelines
+        </button>
+      </h2>
+      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <ul>
+            <li>Java API: <code>thenApply()</code>, <code>thenAccept()</code>, <code>thenRun()</code>, why?
+          
+            <ul>
+              <li>CF API: <code>then()</code> (Easier + Dynamic API)
+          
+              <ul>
+                <li>Curiosity: CompletableFutures never end! This is So Ironic! Sharknado! :shark:</li>
+              </ul>
+              </li>
+              <li><a href="https://www.notion.so/ortussolutions/samples/08-data-transformations.cfc">Data Transformations</a></li>
+              <li><a href="https://www.notion.so/ortussolutions/samples/10-timeouts.cfc">Dealing with Timeouts</a></li>
+              <li>Success on timeout</li>
+              <li>Exception on timeout</li>
+            </ul>
+            </li>
+            <li>Pipelines are independent of data</li>
+            <li>EXAMPLE:
+            <ul>
+              <li>Simple example</li>
+              <li>Pipelines are important especially in looping operations</li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border-0">
+      <h2 class="accordion-header" id="headingFour">
+        <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          4. Dealing With Exceptions
+        </button>
+      </h2>
+      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <ul>
+            <li><a href="https://www.notion.so/ortussolutions/samples/09-exceptions.cfc">Dealing with Exceptions</a>
+          
+            <ul>
+              <li>Built-in Logging</li>
+              <li><code>handle</code> Methods, which basically deal with both the result and an exception object</li>
+              <li>Custom Logging</li>
+              <li>Recovering with data</li>
+              <li>BONUS: Recovering with a Future</li>
+            </ul>
+            </li>
+            <li>EXAMPLE
+            <ul>
+              <li>
+              <p>I would love an example that captures an exception, recovers, and continues the pipeline</p>
+          
+              <ul>
+                <li>Show how exceptions skip <code>.then</code> methods until recovered.</li>
+              </ul>
+          
+              <div class="code-container">
+              <pre>
+                          <code>future // throws
+                            .then() // skip
+                            .then() // skip
+                            .onException( ) // called and recovered
+                            .then(); // called
+                            .onException( ) // called for the `onException` and last `then`
+                          </code></pre>
+              </div>
+              </li>
+              <li>
+              <p>Global Exception Handlers - Global ColdBox Exception Handler</p>
+              </li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border-0">
+      <h2 class="accordion-header" id="headingFive">
+        <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+          5. Executors - Be the Manager!
+        </button>
+      </h2>
+      <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <ul>
+            <li><a href="https://www.notion.so/ortussolutions/samples/04-nb-future.cfc">Thread of execution</a></li>
+            <li><a href="https://www.notion.so/ortussolutions/samples/05-custom-pool.cfc">Changing the pool</a>
+            <ul>
+              <li>Register many different <a href="https://www.notion.so/ortussolutions/samples/06-cached-pool.cfc">types of executors/pool</a>
+              <ul>
+                <li><code>Fixed</code> : Control the amount of threads, cpu intensive, io intensive</li>
+                <li><code>Single</code> : A processing queue FIFO</li>
+                <li><code>Cached</code> : Ever expanding demand queue</li>
+                <li><code>Scheduled</code> : Scheduled Tasks</li>
+              </ul>
+              </li>
+            </ul>
+            </li>
+            <li><a href="https://www.notion.so/ortussolutions/samples/11-statuschecks.cfc">Checking status</a></li>
+            <li>Shutdowns and Awaiting Terminations</li>
+            <li>Killing Tasks, really?</li>
+            <li>EXAMPLE:
+            <ul>
+              <li>Make a FIFO thread pool</li>
+              <li>Choose the correct thread pool for the task</li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border-0">
+      <h2 class="accordion-header" id="headingSix">
+        <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+          6. Parallel Tasks
+        </button>
+      </h2>
+      <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <ul>
+            <li><a href="https://www.callicoder.com/java-8-completablefuture-tutorial/">https://www.callicoder.com/java-8-completablefuture-tutorial/</a></li>
+            <li><a href="https://www.notion.so/ortussolutions/samples/12-combine.cfc">Combining Futures</a>
+            <ul>
+              <li>Very much like a <code>reduce()</code> operation</li>
+              <li>Remember this: 1-1 operation</li>
+              <li><a href="https://www.callicoder.com/java-8-completablefuture-tutorial/">https://www.callicoder.com/java-8-completablefuture-tutorial/</a></li>
+            </ul>
+            </li>
+            <li><a href="https://www.notion.so/ortussolutions/samples/13-compose.cfc">Composing Futures</a>
+            <ul>
+              <li>Monadic design pattern (<a href="https://medium.com/thg-tech-blog/monad-design-**pattern**-in-java-3391d4095b3f">https://medium.com/thg-tech-blog/monad-design-**pattern**-in-java-3391d4095b3f</a>)</li>
+              <li>Hmm: 2-1 Operation, future of futures!</li>
+            </ul>
+            </li>
+            <li><a href="https://www.notion.so/ortussolutions/samples/14-anyOf.cfc">Racing Futures</a></li>
+            <li><a href="https://www.notion.so/ortussolutions/samples/15-all.cfc">All Futures</a></li>
+            <li><a href="https://www.notion.so/ortussolutions/samples/16-allapply.cfc">All futures Modified</a></li>
+            <li>EXAMPLES:
+            <ul>
+              <li>Promise.all()</li>
+              <li>Promise.race()</li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border-0">
+      <h2 class="accordion-header" id="headingSeven">
+        <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+          7. Futures in a ColdBox App
+        </button>
+      </h2>
+      <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <ul>
+            <li>In server land!</li>
+            <li>Start a worker that monitors something
+            <ul>
+              <li>Runs some unit of work when that something is triggered</li>
+              <li>Poor man's worker queue</li>
+              <li><a href="https://www.logicbig.com/tutorials/core-java-tutorial/java-nio/java-watch-service.html">https://www.logicbig.com/tutorials/core-java-tutorial/java-nio/java-watch-service.html</a></li>
+              <li><a href="https://fullstackdeveloper.guru/2020/12/23/how-to-watch-a-folder-directory-or-changes-using-java/">https://fullstackdeveloper.guru/2020/12/23/how-to-watch-a-folder-directory-or-changes-using-java/</a></li>
+              <li>Watch a directory and create pdfs or scale images</li>
+            </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border-0">
+      <h2 class="accordion-header" id="headingEight">
+        <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+          8. Scheduled Tasks
+        </button>
+      </h2>
+      <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+        </div>
+      </div>
+    </div>
+    <div class="accordion-item border-0">
+      <h2 class="accordion-header" id="headingNine">
+        <button class="accordion-button collapsed bg-dark text-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">
+          9. Bonus
+        </button>
+      </h2>
+      <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#scheduling">
+        <div class="accordion-body bg-dark text-white">
+          <ul>
+            <li>Easier debugging with cbDebugger</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- END Accordion  -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+
+</body>
+</html>
