@@ -17,24 +17,135 @@
     </style>
 </head>
 <body>
-    <H1>Agenda WITH ALPINE</H1>
-    <div class="container">
-        <div class="agenda" x-data="{ activeTab:  0 }"
-        x-init="$watch('activeTab', value => console.log(value))"
-        >
-            <div class="agenda-days d-flex gap-3 gap-lg-0 flex-column-reverse flex-lg-row justify-content-between" >
-                <div class="col-12 col-lg-7 level-options d-flex align-items-center gap-3 flex-column-reverse flex-md-row"  >
+    <nav id="itb-nav-collapse" class="navbar navbar navbar-expand-xl"
+    :class="{ 'shadow-lg': atTop, '': !atTop, 'sticky-top bg-navbar-fixed': atTop }"
+        @scroll.window="atTop = (window.pageYOffset < 1) ? false: true"
+
+    >
+            <div class="container justify-content-between">
+                <a href="#" class="navlogo d-xl-none"><img src="/images/itb-logo.png" alt="ITB 10th Edition" width="150px"></a>      
+
+                <button id="nav-btn-toggler" class="navbar-toggler text-white" type="button p-2 collapsed" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse">
+                    <i class="icon icon-hamburger"></i>
+                </button>
+                
+            <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse" aria-labelledby="navbarCollapse">
+                <a href="#" class="navlogo"><img src="/images/itb-logo.png" alt="ITB 10th Edition" width="150px"></a>
+                <ul class="nav main-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#agenda">Agenda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#speakers">Speakers</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sponsors">Sponsors</a>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Info <i class="icon icon-chevron-down ms-2" style="font-size: 7px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading4">About</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading5">Venue</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading6">Discounts</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading7">Hosts</a></li>
+                            <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading8">FAQs</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Community <i class="icon icon-chevron-down ms-2" style="font-size: 7px;"></i></a>
+                        <ul class="dropdown-menu">
+                        <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading9">Our Community</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading10">ITB Journey</a></li>
+                        <li class="nav-item"><a class="dropdown-item" href="#scrollspyHeading11">ITB Reviews</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#scrollspyHeading12">Blog</a>
+                    </li>
+                    </ul>
+
+                    <div class="nav-actions d-flex gap-3">
+                        <a href="">Register</a>
+                        <div class="dropdown">
+                            <a class="" href="#" role="button" id="dropdown-resources" data-bs-toggle="dropdown" aria-expanded="false">
+                                Previous ITB <i class="icon icon-chevron-down ms-2" style="font-size: 7px;"></i>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="dropdown-resources">
+                              <li><a class="dropdown-item" href="#">2020</a></li>
+                              <li><a class="dropdown-item" href="#">2019</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+            </div>
+            
+    </div>
+      </nav>
+
+
+    <div class="container" class="agenda" x-data="{ activeTab:  0 }"
+    x-init="$watch('activeTab', value => console.log(value))"
+    >
+        <div class="agenda-head d-flex justify-content-between align-items-center">
+            <h1>Agenda </h1>
+            <a href="#collapseExample" class="py-2 px-3 d-lg-none" data-bs-toggle="collapse" role="button" aria-expanded="false" aria-controls="collapseExample"
+            x-show="activeTab === 1 || activeTab === 3" x-transition:enter.duration.300ms x-transition:leave.duration.900ms
+            ><i class="icon icon-filter"></i></a>
+        </div>
+       
+        <div >
+            <div class="agenda-days d-flex gap-3 gap-lg-0 flex-column-reverse flex-lg-row justify-content-between agenda-filters" >
+                
+                <div class="col-12 col-lg-7 level-options d-flex align-items-center gap-3 flex-column-reverse flex-md-row agenda-filters" >
                     <h4 class="col-12 text-center text-md-start col-md-3" x-show="activeTab === 0">Workshops</h4>
                     <h4 class="col-12 text-center text-md-start col-md-3" x-show="activeTab === 1 || activeTab=== 3">Sessions</h4>
                     <h4 class="col-12 text-center text-md-start col-md-3" x-show="activeTab === 2 || activeTab=== 4">Hands-on</h4>
-                    <div class="col-12 col-md-9 d-flex gap-md-4 gap-0 justify-content-between justify-content-md-start"> 
-                        <a href="" class="active p-1 h-100 align-items-center" x-show="activeTab === 1 || activeTab === 3" x-transition:enter.duration.300ms x-transition:leave.duration.900ms>All</a>
-                        <a href="" class=" p-1 h-100 align-items-center" x-show="activeTab === 1 || activeTab === 3" x-transition:enter.duration.500ms x-transition:leave.duration.700ms>Beginner</a>
-                        <a href="" class=" p-1 h-100 align-items-center" x-show="activeTab === 1 || activeTab === 3" x-transition:enter.duration.700ms x-transition:leave.duration.500ms>Intermediate</a>
-                        <a href="" class=" p-1 h-100 align-items-center" x-show="activeTab === 1 || activeTab === 3" x-transition:enter.duration.900ms x-transition:leave.duration.300ms>Advanced</a>
-                    </div>
-                   
+                    <div class="d-none d-lg-block " id="">
+                        <div class="d-flex flex-row gap-3 p-0">
+                            <div class="form-floating text-white" x-show="activeTab === 1 || activeTab === 2 || activeTab === 3 || activeTab === 4" x-transition:enter.duration.300ms x-transition:leave.duration.900ms>
+                                <select class="form-select text-white" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>Ortus Room</option>
+                                    <option value="1">Box Room</option>
+                                </select>
+                                <label for="floatingSelect">Room</label>
+                              </div>
+                              <div class="form-floating text-white" x-show="activeTab === 1 || activeTab === 3 " x-transition:enter.duration.500ms x-transition:leave.duration.700ms>
+                                <select class="form-select text-white" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>All</option>
+                                  <option value="1">Begginer</option>
+                                  <option value="2">Intermediate</option>
+                                  <option value="3">Advanced</option>
+                                </select>
+                                <label for="floatingSelect">Level</label>
+                              </div>
+                        </div>
+                    </div>                   
                 </div>
+                <div class="col-12 collapse d-lg-none" id="collapseExample">
+                    <div class="row">
+                        <div class="col-6 py-3">
+                            <div class="form-floating text-white w-100">
+                                <select class="form-select text-white" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>Ortus Room</option>
+                                    <option value="1">Box Room</option>
+                                </select>
+                                <label for="floatingSelect">Room</label>
+                              </div>
+                        </div>
+                        <div class="col-6 py-3">
+                            <div class="form-floating text-white w-100">
+                                <select class="form-select text-white" id="floatingSelect" aria-label="Floating label select example">
+                                    <option selected>All</option>
+                                  <option value="1">Begginer</option>
+                                  <option value="2">Intermediate</option>
+                                  <option value="3">Advanced</option>
+                                </select>
+                                <label for="floatingSelect">Level</label>
+                              </div>
+                        </div>  
+                    </div>                                      
+                </div>
+               
 
 
                 <ul class="col-12 col-lg-5 nav nav-pills d-flex justify-content-between">
@@ -44,7 +155,7 @@
                          
                         :class="{ 'active': activeTab === 0 }"
                     >
-                        <div>
+                        <div class="d-flex flex-column justify-content-center h-100">
                             <div class="fontTelegrafBlack">DAY 1</div> 
                             <span>May 17<sup>th</sup></span>
                         </div>
