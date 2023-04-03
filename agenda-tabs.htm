@@ -102,22 +102,29 @@
                     <h4 class="col-12 text-center text-md-start col-md-3" x-show="activeTab === 2 || activeTab=== 4">Hands-on</h4>
                     <div class="d-none d-lg-block " id="">
                         <div class="d-flex flex-row gap-3 p-0">
-                            <div class="form-floating text-white" x-show="activeTab === 1 || activeTab === 2 || activeTab === 3 || activeTab === 4" x-transition:enter.duration.300ms x-transition:leave.duration.900ms>
-                                <select class="form-select text-white" id="floatingSelect" aria-label="Floating label select example">
-                                    <option selected>Ortus Room</option>
-                                    <option value="1">Box Room</option>
-                                </select>
-                                <label for="floatingSelect">Room</label>
+                            <!-- esto es para el dropdown que va en lugar del select que teniamos  -->
+                              <div class="" x-data="{ level: 'All'}" x-transition:enter.duration.500ms x-transition:leave.duration.700ms>
+                                <a class="choose-level nav-link dropdown d-flex justify-content-between align-items-center gap-2 p-2 px-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">
+                                    <div class="d-flex gap-2">
+                                        <div
+                                            class="color-code" 
+                                            :class="level == 'All' ? 'color-all' : level == 'Beginner' ? 'color-beginner' : level == 'Intermediate' ? 'color-intermediate' : 'color-advancedå'"
+                                        >
+                                        </div>
+                                        <div class="" x-ref="div" x-model="level" x-text="level"></div>
+                                        
+                                        
+                                    </div>
+                                <i class="icon icon-chevron-down" style="font-size: 8px;"></i>
+                                </a>
+                                <ul class="dropdown-menu shadow-lg">
+                                    <li><a class="dropdown-item py-3 py-sm-2 d-flex gap-2 align-items-center" href="#" @click="$refs.div._x_model.set('All')" ><div class="color-code color-all"></div> All</a></li>
+                                    <li><a class="dropdown-item py-3 py-sm-2 d-flex gap-2 align-items-center" href="#" @click="$refs.div._x_model.set('Beginner'), $refs.dot._x_model.set('color-beginner')"><div class="color-code color-beginner"></div> Beginner</a></li>
+                                    <li><a class="dropdown-item py-3 py-sm-2 d-flex gap-2 align-items-center" href="#" @click="$refs.div._x_model.set('Intermediate')"><div class="color-code color-intermediate"></div> Intermediate</a></li>
+                                    <li><a class="dropdown-item py-3 py-sm-2 d-flex gap-2 align-items-center" href="#" @click="$refs.div._x_model.set('Advanced')"><div class="color-code color-advanced"></div> Advanced</a></li>
+                                </ul>
                               </div>
-                              <div class="form-floating text-white" x-show="activeTab === 1 || activeTab === 3 " x-transition:enter.duration.500ms x-transition:leave.duration.700ms>
-                                <select class="form-select text-white" id="floatingSelect" aria-label="Floating label select example">
-                                    <option selected>All</option>
-                                  <option value="1">Begginer</option>
-                                  <option value="2">Intermediate</option>
-                                  <option value="3">Advanced</option>
-                                </select>
-                                <label for="floatingSelect">Level</label>
-                              </div>
+                               <!-- FIN  esto es para el dropdown que va en lugar del select que teniamos --> 
                         </div>
                     </div>                   
                 </div>
@@ -142,7 +149,10 @@
                                 </select>
                                 <label for="floatingSelect">Level</label>
                               </div>
+
+                            
                         </div>  
+
                     </div>                                      
                 </div>
                
@@ -210,21 +220,63 @@
                 </ul>
             </div>
             <div class="tab-panel" :class="{ 'active': activeTab === 0 }" x-show.transition.in.opacity.duration.600="activeTab === 0">
-                <a href="" class="agenda-item d-flex flex-lg-row flex-column p-3 gap-3 justify-content-between mb-3">
-                    <div class="info col-12 col-lg-9 d-flex gap-3"> 
-                        <div class="hora d-none d-lg-block">8:00 - 8:50</div>
-                        <div class="sesion-name">
-                            <span class="title">Lorem ipsum dolor sit amet, consectetur.</span>
-                        </div>
+
+                <!-- nombre de los rooms en desktop  -->
+                <div class="row d-md-flex d-none d-md-block">
+                    <div class="col-md-2 col-12 d-flex align-items-stretch">
+                        <div class="info  p-3 d-flex align-items-center w-100">&nbsp;</div>
                     </div>
-                    <div class="speaker col-12 col-lg-3 d-flex gap-2 align-items-center justify-content-between pe-lg-3">
-                        <div class="d-flex align-items-center gap-2 col-6 col-lg-12">
-                            <img src="/images/spk-marty.png" alt="Photo of Marty McFly" width="15%">
-                            Marty McFly
-                        </div>
-                        <div class="hora d-lg-none col-4 text-end">8:00 - 8:50</div>
-                    </div> 
-                </a>
+                    <div class="col-12 col-md-5 d-flex align-items-stretch">
+                        <div class="d-flex align-items-center fs-4 ">Ortus Room</div>
+                    </div>
+                    <div class="col-12 col-md-5 d-flex align-items-stretch">
+                        <div class="d-flex align-items-center fs-4">Box Room</div>
+                    </div>
+                </div>
+                <!-- FIN  nombre de los rooms en desktop  -->
+
+                <!-- Ejemplo de los 2 rooms -->
+                <div class="row d-flex ">
+                    <div class="col-md-2 col-12 d-flex align-items-stretch mb-3">
+                        <div class="session-hour info  p-3 d-flex align-items-center w-100">8:00 - 8:50</div>
+                    </div>
+                    <div class="col-12 col-md-5 d-flex align-items-stretch mb-3">
+                        
+                        <a href="#" class="agenda-item card-session session-all text-white p-3 d-flex w-100 justify-content-start align-items-start align-items-md-center flex-column flex-md-row justify-content-lg-between">
+                            <div class="d-flex align-items-center">CBPUSH: web Sockets Made Easy</div>
+                            <div class="d-md-none">Ortus Room with <span href="">Grant Copley</span></div>
+                            
+                            
+                            <div class="speaker d-flex gap-2 align-items-centerms-2">
+                                <div class="d-none d-md-flex align-items-center gap-2 col-6 col-lg-12">
+                                    <img src="/images/spk-marty.png" alt="" width="35px">
+                                </div>
+                                
+                            </div>     
+                            
+                        </a>
+                        
+                    </div>
+                    <div class="col-12 col-md-5 d-flex align-items-stretch mb-3">
+                        
+                        <a href="#" class="agenda-item card-session session-advanced text-white p-3 d-flex w-100 justify-content-start align-items-start align-items-md-center flex-column flex-md-row justify-content-lg-between">
+                            <div class="d-flex align-items-center">Avoiding the most dangerous software weaknesses</div>
+                            <div class="d-md-none">Box Room with <span href="">Pete Freitag</span></div>
+                            
+                            
+                            <div class="speaker d-flex gap-2 align-items-centerms-2">
+                                <div class="d-none d-md-flex align-items-center gap-2 col-6 col-lg-12">
+                                    <img src="/images/spk-marty.png" alt="" width="35px">
+                                </div>
+                                
+                            </div>     
+                            
+                        </a>
+                        
+                    </div>
+                </div>
+                <!-- FIN Ejemplo de los 2 rooms -->
+
             </div>
             <div class="tab-panel gap-3" :class="{ 'active': activeTab === 1 }" x-show.transition.in.opacity.duration.600="activeTab === 1">
                 <div class="agenda-item d-flex p-3 gap-3 justify-content-between no-session mb-3">
@@ -237,22 +289,32 @@
                         <div class="hora d-lg-none col-4 text-end">8:00 - 8:50</div>
                     </div>
                 </div>
-                <a href="" class="agenda-item d-flex flex-lg-row flex-column p-3 gap-3 justify-content-between mb-3">
+
+
+
+
+
+
+                <a href="" class="agenda-item  d-flex flex-lg-row flex-column p-3 gap-3 justify-content-between mb-3">
                     <div class="info col-12 col-lg-9 d-flex gap-3"> 
-                        <div class="hora d-none d-lg-block">8:00 - 8:50</div>
-                        <div class="sesion-name">
+                        <div class="hora d-none d-lg-flex align-items-center">8:00 - 8:50</div>
+                        <div class="sesion-name d-flex align-items-center">
                             <span class="title">Lorem ipsum dolor sit amet, consectetur.</span>
-                            <span class="level-tag">Begginer</span>
                         </div>
                     </div>
-                    <div class="speaker col-12 col-lg-3 d-flex gap-2 align-items-center justify-content-between pe-lg-3">
+                    <div class="speaker d-flex gap-2 align-items-center justify-content-between pe-lg-3">
                         <div class="d-flex align-items-center gap-2 col-6 col-lg-12">
-                            <img src="/images/spk-marty.png" alt="Photo of Marty McFly" width="15%">
-                            Marty McFly
+                            <img src="/images/spk-marty.png" alt="Photo of Marty McFly" width="35px">
                         </div>
                         <div class="hora d-lg-none col-4 text-end">8:00 - 8:50</div>
                     </div> 
                 </a>
+
+
+
+
+
+
 
                 <a href="" class="agenda-item d-flex flex-lg-row flex-column p-3 gap-3 justify-content-between mb-3">
                     <div class="info col-12 col-lg-9 d-flex gap-3"> 

@@ -40,6 +40,12 @@ body{background-color: #000;}
     --itb-ortus-green: #8FC73E;
     --itb-dark-grey:     #292929;
     --bs-code-color: #FFBA00;
+
+    --itb-level-color-all: #FFFFFF;
+    --itb-level-color-beginner: #CB5FB2;
+    --itb-level-color-intermediate: #EDD626;
+    --itb-level-color-advanced: #1D8BFA;
+
 }
 
 .fontTelegrafBlack{font-family: 'fontTelegrafBlack';}
@@ -226,10 +232,7 @@ a:hover{color: var(--itb-green-second);}
 }
 
 .sesion-name .title{
-    text-transform: uppercase;
     color: #fff;
-    font-family:fontTelegrafBlack;
-    font-size: 1.2rem;
 }
 .sesion-name .level-tag{
     text-transform: uppercase;
@@ -257,6 +260,23 @@ background-color: #000 !important;
     background-color: #000 !important;
     
 }
+
+
+/* Agendia sessions, both rooms  */
+.choose-level{border: 1px solid #4d4d4d !important;border-radius: 0.375rem;min-width: 185px;}
+.color-code{width: 14px;height: 14px;border-radius: 50%;}
+.session-hour{background-color: var(--itb-dark-grey); color: var(--itb-green); letter-spacing: 1px;}
+.session-opacity{opacity: 0.35;}
+.color-all{background-color: var(--itb-level-color-all);}
+.color-beginner{background-color: var(--itb-level-color-beginner);}
+.color-intermediate{background-color: var(--itb-level-color-intermediate);}
+.color-advanced{background-color: var(--itb-level-color-advanced);}
+
+.card-session{border-left: 6px; border-left-style: solid;}
+.session-all{border-color: var(--itb-level-color-all) !important;}
+.session-beginner{border-color: var(--itb-level-color-beginner) !important;}
+.session-intermediate{border-color: var(--itb-level-color-intermediate) !important;}
+.session-advanced{border-color: var(--itb-level-color-advanced) !important;}
 /* END Agenda */
 
 
